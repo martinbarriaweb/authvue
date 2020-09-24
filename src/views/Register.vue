@@ -9,7 +9,7 @@
         type="text"
         placeholder="Confirme password"
       />
-      <button type="submit">Registrar usuario</button>
+      <button :disabled="!disabled" type="submit">Registrar usuario</button>
     </form>
     <span v-if="error"> {{ error.message }} </span>
   </div>
@@ -32,6 +32,11 @@ export default {
   },
   computed: {
     ...mapState(["error"]),
+    disabled() {
+      return (
+        this.password === this.confirm_password && this.password.trim() !== ""
+      );
+    },
   },
 };
 </script>

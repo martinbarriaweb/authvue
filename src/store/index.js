@@ -1,4 +1,5 @@
 import { auth } from "../firebase";
+import router from "../router";
 import Vue from "vue";
 import Vuex from "vuex";
 
@@ -27,6 +28,22 @@ export default new Vuex.Store({
             id: resp.user.uid,
           };
           commit("setUser", user);
+          router.push("/");
+        })
+        .catch((err) => {
+          commit("setError", err);
+        });
+    },
+    login({ commit }, user) {
+      auth
+        .signInWithEmailAndPassword(user.email, user.password)
+        .then((resp) => {
+          const user = {
+            email: resp.user.email,
+            id: resp.user.uid,
+          };
+          commit("setUser", user);
+          router.push("/");
         })
         .catch((err) => {
           commit("setError", err);
