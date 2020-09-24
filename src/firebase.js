@@ -1,8 +1,7 @@
 import firebase from "firebase/app";
-import "firebase/firestore";
 import "firebase/auth";
+import "firebase/firestore";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAUdswUZLJ8Znq4TmUtisMpUOKbwzN--ek",
   authDomain: "authvue-a917c.firebaseapp.com",
