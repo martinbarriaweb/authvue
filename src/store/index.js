@@ -12,6 +12,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setUser(state, payload) {
+      console.log(payload);
       state.user = payload;
     },
     setError(state, payload) {
@@ -48,6 +49,9 @@ export default new Vuex.Store({
         .catch((err) => {
           commit("setError", err);
         });
+    },
+    signOut() {
+      auth.signOut();
     },
   },
   modules: {},
